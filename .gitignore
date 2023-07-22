@@ -14,3 +14,4 @@ Cargo.lock
 *.pdb
 
 src/scripts/gitnp.ps1
+src/image_proc/temp_image.png
