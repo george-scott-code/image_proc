@@ -2,6 +2,7 @@ use image::{DynamicImage, ImageFormat};
 use image::imageops::blur;
 use image::{Rgba, RgbaImage, Pixel};
 use image::imageops::overlay;
+use image::GenericImageView;
 use open;
 
 fn main() {
@@ -11,11 +12,11 @@ fn main() {
     // Load the image using the image crate
     let mut img = image::open(image_path).expect("Failed to load image");
 
-    let mut blurred = blur(&img, 2.5);
+    // let mut blurred = blur(&img, 2.5);
     
     let temp_path = "temp_image.png";
 
-    let mut img2 = RgbaImage::new(1000, 1000);
+    let mut img2 = RgbaImage::new(img.width(), img.height());
     let start = Rgba::from_slice(&[255, 73, 108, 0]);
     let end = Rgba::from_slice(&[0, 0, 0, 255]);
 
