@@ -1,8 +1,5 @@
-use image::{DynamicImage, ImageFormat};
-use image::imageops::blur;
-use image::{Rgba, RgbaImage, Pixel};
+use image::{DynamicImage, GenericImageView, Rgba, RgbaImage, Pixel};
 use image::imageops::overlay;
-use image::GenericImageView;
 use open;
 
 fn main() {
