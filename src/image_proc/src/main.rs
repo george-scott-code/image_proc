@@ -1,4 +1,4 @@
-use image::{DynamicImage, GenericImageView, Rgba, RgbaImage, Pixel};
+use image::{DynamicImage, GenericImageView, Rgba, RgbaImage, Pixel, GenericImage};
 use image::imageops::overlay;
 use open;
 
@@ -17,11 +17,19 @@ fn main() {
     let start = Rgba::from_slice(&[255, 73, 108, 0]);
     let end = Rgba::from_slice(&[0, 0, 0, 255]);
 
-    image::imageops::horizontal_gradient(&mut img2, start, end);
+    // image::imageops::horizontal_gradient(&mut img2, start, end);
 
-    overlay(&mut img, &img2, 0, 0);
+    // overlay(&mut img, &img2, 0, 0);
+    let mut rgba = img.to_rgba8();
+    const CLEARPIXEL: image::Rgba<u8> = image::Rgba([0,0,0,0]);
+    for pixel in rgba.pixels_mut() {
+        if pixel[2] % 2 != 0 {
+            *pixel = CLEARPIXEL;
+            
+        }
+    } 
 
-    img.save(temp_path).expect("Failed to save temporary image");
+    rgba.save(temp_path).expect("Failed to save temporary image");
 
     if let Err(e) = open::that(temp_path) {
         println!("Error opening the image viewer: {}", e);
