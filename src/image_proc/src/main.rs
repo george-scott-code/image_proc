@@ -21,11 +21,10 @@ fn main() {
 
     // overlay(&mut img, &img2, 0, 0);
     let mut rgba = img.to_rgba8();
-    const CLEARPIXEL: image::Rgba<u8> = image::Rgba([0,0,0,0]);
-    for pixel in rgba.pixels_mut() {
-        if pixel[2] % 2 != 0 {
-            *pixel = CLEARPIXEL;
-            
+    const CLEARPIXEL: image::Rgba<u8> = image::Rgba([0,0,0,255]);
+    for pixel in rgba.enumerate_pixels_mut() {
+        if pixel.0 % 2 != 0 {
+            *pixel.2 = CLEARPIXEL;
         }
     } 
 
