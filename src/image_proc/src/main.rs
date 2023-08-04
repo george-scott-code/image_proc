@@ -7,15 +7,12 @@ fn main() {
 
     // Load the image using the image crate
     let mut img = image::open(image_path).expect("Failed to load image");
-
-    // let mut blurred = blur(&img, 2.5);
-    
     let temp_path = "temp_image.png";
+    // let mut blurred = blur(&img, 2.5);
 
-    let mut img2 = RgbaImage::new(img.width(), img.height());
-    let start = Rgba::from_slice(&[255, 73, 108, 0]);
-    let end = Rgba::from_slice(&[0, 0, 0, 255]);
-
+    // let mut img2 = RgbaImage::new(img.width(), img.height());
+    // let start = Rgba::from_slice(&[255, 73, 108, 0]);
+    // let end = Rgba::from_slice(&[0, 0, 0, 255]);
     // image::imageops::horizontal_gradient(&mut img2, start, end);
 
     // overlay(&mut img, &img2, 0, 0);
