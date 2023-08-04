@@ -1,5 +1,4 @@
-use image::{DynamicImage, GenericImageView, Rgba, RgbaImage, Pixel, GenericImage};
-use image::imageops::overlay;
+use image::{DynamicImage, GenericImageView, Rgba, RgbaImage, Pixel};
 use open;
 
 fn main() {
