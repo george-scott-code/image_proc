@@ -2,14 +2,12 @@ use image::Pixel;
 use open;
 
 fn main() {
-    // Path to the image file you want to display
     let image_path = "../images/new_medieval.jpg";
 
-    // Load the image using the image crate
     let img = image::open(image_path).expect("Failed to load image");
     let temp_path = "temp_image.png";
     let mut rgba = img.to_rgba8();
-    
+
     const CLEARPIXEL: image::Rgba<u8> = image::Rgba([0,0,0,40]);
 
     for pixel in rgba.enumerate_pixels_mut() {
